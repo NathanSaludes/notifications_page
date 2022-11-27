@@ -4,13 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-
   <title>Frontend Mentor | Notifications page</title>
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;800&display=swap"
+    rel="stylesheet">
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="styles/reset.css" media="all">
+  <link rel="stylesheet" href="styles/styles.css" media="all">
+  <link rel="stylesheet" href="styles/mobile-responsive.css" media="all">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution {
       font-size: 11px;
@@ -24,38 +29,141 @@
 </head>
 
 <body>
+  <div class="wrapper">
+    <div class="content_container">
+      <div class="header">
+        <h1 class="heading">
+          Notifications <div class="notification_badge">3</div>
+        </h1>
+        <span class="mark_as_read">Mark all as read</span>
+      </div>
 
-  Notifications 3
+      <div class="notification_list">
 
-  Mark all as read
+        <!-- notification 1 -->
+        <div class="notification notification--unread">
+          <div class="notification__avatar">
+            <img src="/images/avatar-mark-webber.webp" alt="">
+          </div>
+          <div class="notification__content">
+            <p>
+              <a href="#" class="notification__user_name">Mark Webber</a> reacted to your recent post
+              <a href="#" class="notification__hyperlink">My first tournament today!</a>
+            </p>
+            <span class="notification__timestamp">1m ago</span>
+          </div>
+        </div>
 
-  Mark Webber reacted to your recent post My first tournament today!
-  1m ago
+        <!-- notification 2 -->
+        <div class="notification notification--unread">
+          <div class="notification__avatar">
+            <img src="/images/avatar-angela-gray.webp" alt="">
+          </div>
+          <div class="notification__content">
+            <p>
+              <a href="#" class="notification__user_name">Angela Gray</a> followed you
+            </p>
+            <span class="notification__timestamp">5m ago</span>
+          </div>
+        </div>
 
-  Angela Gray followed you
-  5m ago
+        <!-- notification 3 -->
+        <div class="notification notification--unread">
+          <div class="notification__avatar">
+            <img src="/images/avatar-jacob-thompson.webp" alt="">
+          </div>
+          <div class="notification__content">
+            <p>
+              <a href="#" class="notification__user_name">Jacob Thompson</a> has joined your group <a href="#"
+                class="notification__hyperlink--group">Chess Club</a>
+            </p>
+            <span class="notification__timestamp">1 day ago</span>
+          </div>
+        </div>
 
-  Jacob Thompson has joined your group Chess Club
-  1 day ago
+        <!-- notification 4 -->
+        <div class="notification">
+          <div class="notification__avatar">
+            <img src="/images/avatar-rizky-hasanuddin.webp" alt="">
+          </div>
+          <div class="notification__content">
+            <p>
+              <a href="#" class="notification__user_name">Rizky Hasanuddin</a> sent you a private message
+            </p>
+            <span class="notification__timestamp">5 days ago</span>
+            <div class="notification__private_message">
+              Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and
+              I'm already having lots of fun and improving my game.
+            </div>
+          </div>
+        </div>
 
-  Rizky Hasanuddin sent you a private message
-  5 days ago
-  Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and
-  I'm already having lots of fun and improving my game.
+        <!-- notification 5 -->
+        <div class="notification">
+          <div class="notification__avatar">
+            <img src="/images/avatar-kimberly-smith.webp" alt="">
+          </div>
+          <div class="notification__content">
+            <p>
+              <a href="#" class="notification__user_name">Kimberly Smith</a> commented on your picture
+            </p>
+            <span class="notification__timestamp">1 week ago</span>
+          </div>
+          <a href="#" class="notification__additional_content">
+            <img src="/images/image-chess.webp" alt="">
+          </a>
+        </div>
 
-  Kimberly Smith commented on your picture
-  1 week ago
+        <!-- notification 6 -->
+        <div class="notification">
+          <div class="notification__avatar">
+            <img src="/images/avatar-nathan-peterson.webp" alt="">
+          </div>
+          <div class="notification__content">
+            <p>
+              <a href="#" class="notification__user_name">Nathan Peterson</a> reacted to your recent post
+              <a href="#" class="notification__hyperlink">
+                5 end-game strategies to increase your win rate
+              </a>
+            </p>
+            <span class="notification__timestamp">2 weeks ago</span>
+          </div>
+        </div>
 
-  Nathan Peterson reacted to your recent post 5 end-game strategies to increase your win rate
-  2 weeks ago
-
-  Anna Kim left the group Chess Club
-  2 weeks ago
+        <!-- notification 7 -->
+        <div class="notification">
+          <div class="notification__avatar">
+            <img src="/images/avatar-anna-kim.webp" alt="">
+          </div>
+          <div class="notification__content">
+            <p>
+              <a href="#" class="notification__user_name">Anna Kim</a> left the group
+              <a href="#" class="notification__hyperlink--group">Chess Club</a>
+            </p>
+            <span class="notification__timestamp">2 weeks ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/NathanSaludes">Nathaniel Saludes</a>.
   </div>
+
+  <script>
+
+    // Mark all notifications as read
+    const markAsRead = document.querySelector('span.mark_as_read');
+    markAsRead.addEventListener("click", (event) => {
+      const unreadNotifications = document.querySelectorAll(".notification.notification--unread");
+      unreadNotifications.forEach(notification => {
+        notification.classList.remove("notification--unread");
+      })
+    })
+
+  </script>
 </body>
 
 </html>
