@@ -34,23 +34,6 @@
 	box-sizing: border-box;
 }
 
-@font-face {
-	font-family: 'Plus Jakarta Sans';
-	src: url('/styles/fonts/PlusJakartaSans-VariableFont_wght.ttf');
-}
-
-@font-face {
-	font-family: 'Plus Jakarta Sans';
-	src: url('/styles/fonts/static/PlusJakartaSans-Medium.ttf');
-	font-weight: 500;
-}
-
-@font-face {
-	font-family: 'Plus Jakarta Sans';
-	src: url('/styles/fonts/static/PlusJakartaSans-ExtraBold.ttf');
-	font-weight: 800;
-}
-
 html {
 	font-size: 16px;
 	font-family: 'Plus Jakarta Sans';
