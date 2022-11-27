@@ -34,6 +34,10 @@
 	box-sizing: border-box;
 }
 
+.hidden {
+	display: none !important;
+}
+
 html {
 	font-size: 16px;
 	font-family: 'Plus Jakarta Sans';
@@ -42,9 +46,6 @@ html {
 
 body {
 	background-color: var(--very-light-grayish-blue);
-}
-
-.wrapper {
 }
 
 .content_container {

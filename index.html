@@ -178,14 +178,16 @@
   </div>
 
   <script>
-
     // Mark all notifications as read
     const markAsRead = document.querySelector('span.mark_as_read');
+    const notificationBadge = document.querySelector('.notification_badge');
     markAsRead.addEventListener("click", (event) => {
       const unreadNotifications = document.querySelectorAll(".notification.notification--unread");
       unreadNotifications.forEach(notification => {
         notification.classList.remove("notification--unread");
       })
+
+      notificationBadge.classList.add('hidden');
     })
 
   </script>
