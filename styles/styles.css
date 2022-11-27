@@ -1,0 +1,213 @@
+:root {
+	/* primary colors */
+	--red: hsl(1, 90%, 64%);
+	--blue: hsl(219, 85%, 26%);
+
+	/* neutral colors */
+	--white: hsl(0, 0%, 100%);
+	--very-light-grayish-blue: hsl(210, 60%, 98%);
+	--light-grayish-blue-1: hsl(211, 68%, 94%);
+	--light-grayish-blue-2: hsl(205, 33%, 90%);
+	--grayish-blue: hsl(219, 14%, 63%);
+	--dark-grayish-blue: hsl(219, 12%, 42%);
+	--very-dark-blue: hsl(224, 21%, 14%);
+
+	/* typography */
+	--font-header: 2rem;
+
+	/* shadow */
+	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	--shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+		0 4px 6px -4px rgb(0 0 0 / 0.1);
+	--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+		0 8px 10px -6px rgb(0 0 0 / 0.1);
+	--shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+	--shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+	--shadow-none: 0 0 #0000;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: 'Plus Jakarta Sans';
+	src: url('/styles/fonts/PlusJakartaSans-VariableFont_wght.ttf');
+}
+
+@font-face {
+	font-family: 'Plus Jakarta Sans';
+	src: url('/styles/fonts/static/PlusJakartaSans-Medium.ttf');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Plus Jakarta Sans';
+	src: url('/styles/fonts/static/PlusJakartaSans-ExtraBold.ttf');
+	font-weight: 800;
+}
+
+html {
+	font-size: 16px;
+	font-family: 'Plus Jakarta Sans';
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--very-light-grayish-blue);
+}
+
+.wrapper {
+}
+
+.content_container {
+	max-width: 768px;
+	background-color: var(--white);
+	padding: 40px;
+	margin: 60px auto;
+	border-radius: 20px;
+	box-shadow: var(--shadow-xl);
+}
+
+/* SECTION: HEADER
+------------------------------------------- */
+.header {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 10px;
+	align-items: center;
+	margin-bottom: 40px;
+}
+
+.heading {
+	margin-right: auto;
+	font-size: var(--font-header);
+	font-weight: 800;
+	color: var(--very-dark-blue);
+	display: inline-flex;
+	align-items: center;
+}
+
+.notification_badge {
+	background-color: var(--blue);
+	color: var(--white);
+	font-size: 1.2rem;
+	display: flex;
+	align-items: center;
+	align-self: stretch;
+	margin-left: 13px;
+	padding: 0 12px;
+	border-radius: 8px;
+}
+
+.mark_as_read {
+	cursor: pointer;
+	font-weight: 500;
+	color: var(--blue);
+}
+
+/* SECTION: NOTIFICATION
+------------------------------------------- */
+.notification_list {
+}
+
+.notification {
+	display: flex;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.notification--unread {
+	background-color: var(--very-light-grayish-blue);
+}
+
+.notification:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.notification__avatar {
+	width: 50px;
+	margin-right: 20px;
+}
+
+.notification__avatar img {
+	width: 100%;
+	object-fit: contain;
+}
+
+.notification__content {
+	width: 100%;
+	color: var(--dark-grayish-blue);
+	font-weight: 500;
+	line-height: 1.5;
+	transition: ease-in-out;
+}
+
+.notification--unread .notification__content p::after {
+	content: '';
+	display: inline-block;
+	background-color: var(--red);
+	border-radius: 99px;
+	padding: 5px;
+	margin-left: 5px;
+}
+
+.notification__user_name {
+	font-weight: 800;
+	color: var(--very-dark-blue);
+	text-decoration: none;
+	margin-right: 5px;
+	cursor: pointer;
+}
+
+.notification__user_name:hover {
+	color: var(--blue);
+}
+
+.notification__hyperlink,
+.notification__hyperlink--group {
+	text-decoration: none;
+	font-weight: 800;
+	color: inherit;
+}
+
+.notification__hyperlink:hover {
+	color: var(--blue);
+}
+
+.notification__hyperlink--group {
+	color: var(--blue);
+}
+
+.notification__timestamp {
+	color: var(--grayish-blue);
+}
+
+.notification__additional_content {
+	width: 60px;
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+.notification__additional_content img {
+	width: 100%;
+	border: 3px solid var(--light-grayish-blue-2);
+	border-radius: 9px;
+	object-fit: cover;
+}
+
+.notification__private_message {
+	border: 2px solid var(--light-grayish-blue-1);
+	padding: 20px;
+	border-radius: 7px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.notification__private_message:hover {
+	background-color: var(--light-grayish-blue-1);
+}
